@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout style="@style/PageContainer">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/category_tab"
+            style="@style/SectionLayout"
+            app:tabGravity="fill"
+            app:tabMode="scrollable" />
+
+        <!--<ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/ProgressBarInline"
+            android:visibility="gone" />-->
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/category_tab_pager"
+            style="@style/MatchParentLayout" />
+
+    </LinearLayout>
+
+    <!--<android.support.design.widget.CoordinatorLayout
+        style="@style/MatchParentLayout"
+        tools:context=".ui.MainActivity">
+
+        <android.support.design.widget.AppBarLayout
+            style="@style/SectionLayout"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/action_bar_size"
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/category_tab_pager"
+            style="@style/MatchParentLayout"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </android.support.design.widget.CoordinatorLayout>-->
+</layout>

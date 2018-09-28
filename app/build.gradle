@@ -1,0 +1,74 @@
+ext.versionName = '1.0'
+ext.versionCode = 1
+ext.apiVersionCode = 11
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    buildToolsVersion prop("version.build.tools")
+    compileSdkVersion prop("version.sdk.max").toInteger()
+
+    defaultConfig {
+        applicationId "au.com.pjwin.esportfeeds"
+        minSdkVersion prop("version.sdk.min").toInteger()
+        targetSdkVersion prop("version.sdk.max").toInteger()
+        versionCode project.versionCode
+        versionName project.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'SCHEMA', '"http"'
+        buildConfigField 'String', 'HOST', '"feed.esportsreader.com"'
+        buildConfigField 'int', 'PORT', '80'
+        buildConfigField 'String', 'CONTEXT_ROOT', '"reader"'
+        buildConfigField 'long', 'CONNECTION_TIMEOUT', '30'
+        buildConfigField 'long', 'READ_TIMEOUT', '70'
+        buildConfigField 'int', 'API_VERSION', "$project.apiVersionCode"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests {
+            all {
+                jvmArgs '-noverify'
+            }
+            returnDefaultValues true
+            includeAndroidResources true
+        }
+    }
+}
+
+dependencies {
+    def mockitoVersion = prop("version.mockito")
+    def robolectricVersion = prop("version.robolectric")
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':common')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    testImplementation "org.robolectric:shadows-multidex:$robolectricVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

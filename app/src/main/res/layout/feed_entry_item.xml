@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="entry"
+            type="au.com.pjwin.esportfeeds.model.FeedEntry" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        style="@style/ContentPadded"
+        android:paddingBottom="@dimen/content_spacing">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/Header"
+            android:text="@{entry.title.text}"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="title text" />
+
+        <TextView
+            android:id="@+id/summary"
+            style="@style/WrapContentLayout"
+            android:text="@{entry.summary.text}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="summary text here" />
+
+        <ImageView
+            style="@style/WrapContentLayout"
+            android:src="@drawable/ic_arrow_forward"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

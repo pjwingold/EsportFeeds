@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="entry"
+            type="au.com.pjwin.esportfeeds.model.FeedEntry" />
+
+        <import type="au.com.pjwin.esportfeeds.util.DateUtil" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        style="@style/ContentPadded"
+        android:paddingBottom="@dimen/content_spacing">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/Header"
+            android:text="@{entry.title.text}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Header" />
+
+        <!--todo fix html text -->
+        <TextView
+            android:id="@+id/date"
+            style="@style/WrapContentLayout"
+            android:paddingBottom="@dimen/content_spacing"
+            android:text="@{DateUtil.formatFeedDate(entry.source.published.date)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="Fri, 14 Sep 2018" />
+
+        <TextView
+            android:id="@+id/body"
+            style="@style/WrapContentLayout"
+            android:layout_marginEnd="@dimen/content_spacing"
+            android:ellipsize="end"
+            android:maxEms="18"
+            android:text="@{entry.summary.text}"
+            android:maxLines="6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date"
+            tools:text="In the wake of the thrilling conclusion to the international" />
+
+        <ImageView
+            style="@style/WrapContentLayout"
+            android:src="@drawable/ic_arrow_forward"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EsportFeeds</string>
+
+    <string name="app_title">Esport News Feeds</string>
+
+    <string name="detail_title">Feed details</string>
+</resources>
