@@ -7,26 +7,28 @@ dependencies:
   ie /home/user/EsportFeeds /home/user/CommonLib
 
 2. Retrofit:
-  industry standard networking library, easy to use, powerful 
+  industry standard networking library, easy to use, supports caching 
 
 3. Retrofit SimpleXML converter
-  integrated into retrofit for parsing/serialising xml data
+  part of retrofit for parsing/serialising xml data
 
-4. Google androd jetpack Architectural component
+4. Google Androd jetpack Architectural component
 
-  Lifecycles
-  Activity/Fragment observe LiveData Changes and u
-
-  LiveData
-  Observer pattern, change in data source can notify its observers
+  Lifecycles, LiveData
+  Observer pattern, Activity/Fragment(LifecycleOwner) observe LiveData Changes, change in data source(LiveData) can notify its   observers (UI activity/fragment). Library takes care of the complex android life cycle management, can focus on business       logic
 
   Databinding
-  web style UI element binding
+  web style UI element binding in the layout xml file, source data changes can automatically update UI 
 
   ViewModel
-  facilitate communication between UI and data source layer, survives screen orientaiton change
+  facilitate communication between UI and data repository layer, survives screen orientaiton change
   
 5. TabLayout
-  UI tabs library from google, for displaying different categories
+  UI tabs library from google design, for displaying feed categories
+  
+6. RecylerView
+  ListView replacement, 
+  supports Vertical/Horizontal/Grid layout,
+  comes with ViewHolder
   
   
